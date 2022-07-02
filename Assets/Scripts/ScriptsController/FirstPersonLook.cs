@@ -4,13 +4,13 @@ public class FirstPersonLook : MonoBehaviour
 {
     [SerializeField]
     Transform character;
-    public float sensitivity = 2;
+    public float sensitivity;
     public float smoothing = 1.5f;
 
     Vector2 velocity;
     Vector2 frameVelocity;
-
-
+    public GameObject hintWindow;
+    float timeLeft = 3.0f;
     void Reset()
     {
         // Get the character from the FirstPersonMovement in parents.
@@ -19,11 +19,42 @@ public class FirstPersonLook : MonoBehaviour
 
     void Start()
     {
-       
+        hintWindow.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            hintWindow.SetActive(false);
+        }
+       
+
+        if (Input.GetKeyDown(KeyCode.Escape)&& Cursor.lockState== CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1) && Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = true;
+        }
+        /*Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        if (Input.GetKeyDown(KeyCode.Escape)&&!Cursor.visible)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+                    
+        if (Input.GetKeyDown(KeyCode.Escape) && Cursor.visible)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }*/
         // Get smooth velocity.
         Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);

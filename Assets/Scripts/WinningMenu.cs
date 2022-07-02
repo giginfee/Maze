@@ -7,10 +7,12 @@ public class WinningMenu : MonoBehaviour
 {
     public void BackButton()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(1);
     }
     public void playAgain()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 }
