@@ -10,7 +10,7 @@ public class FirstPersonLook : MonoBehaviour
     Vector2 velocity;
     Vector2 frameVelocity;
     public GameObject hintWindow;
-    float timeLeft = 3.0f;
+    float timeLeft = 2.0f;
     void Reset()
     {
         // Get the character from the FirstPersonMovement in parents.

@@ -5,12 +5,8 @@ using UnityEngine;
 public class Winning : MonoBehaviour
 {
     public GameObject WinMenu;
-    void Start()
-    {
-        
-    }
+    
 
-    // Update is called once per frame
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.tag =="Player")
