@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class FirstPersonMovement : MonoBehaviour
 {
     public float speed = 5;
@@ -15,16 +15,39 @@ public class FirstPersonMovement : MonoBehaviour
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
 
-
+    public static int livesCount = 3;
+    public GameObject heart1, heart2, heart3, redBg;
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Obstacle")
+        {
+            heart3.gameObject.SetActive(false);
+            livesCount -=1;
+        }
+    }
 
     void Awake()
     {
         // Get the rigidbody on this.
         rigidbody = GetComponent<Rigidbody>();
+        livesCount = 3;
     }
 
     void FixedUpdate()
     {
+        if (livesCount == 2)
+        {
+
+            heart3.gameObject.SetActive(false);
+        }
+        if (livesCount == 1)
+        {
+            heart2.gameObject.SetActive(false);
+        }
+        if (livesCount == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         // Update IsRunning from input.
         IsRunning = canRun && Input.GetKey(runningKey);
 
