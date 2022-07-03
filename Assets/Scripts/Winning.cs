@@ -5,10 +5,7 @@ using UnityEngine;
 public class Winning : MonoBehaviour
 {
     public GameObject WinMenu;
-    void Start()
-    {
-        
-    }
+    
 
     private void OnTriggerEnter(Collider collider)
     {

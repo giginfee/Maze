@@ -15,7 +15,7 @@ public class timeCount : MonoBehaviour
             TimeLeft += Time.deltaTime;
             updateTimer(TimeLeft);
             
-            
+   
         }
         
    
