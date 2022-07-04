@@ -10658,6 +10658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 360032845546759760}
+  - component: {fileID: 1166132072706960365}
   m_Layer: 0
   m_Name: The Key
   m_TagString: Untagged
@@ -10665,6 +10666,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1166132072706960365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166132072706960364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae158c6057abc54f9d8d74578206d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: {fileID: 375062035}
+  key3D: {fileID: 7226502896291332583}
+  keypicture: {fileID: 820764038}
 --- !u!23 &1418928143274528180
 MeshRenderer:
   m_ObjectHideFlags: 0
